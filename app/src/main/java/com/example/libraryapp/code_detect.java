@@ -44,13 +44,19 @@ import com.google.android.gms.vision.text.TextBlock;
 import com.google.android.gms.vision.text.TextRecognizer;
 
 
+
 public class code_detect extends AppCompatActivity {
 
     private Button scancard1;
     SurfaceView cameraView;
     private TextView nametext1,usntext1;
     CameraSource cameraSource;
+    TextView preview1;
     final int RequestCameraPermissionID = 1001;
+    String out;
+    int count=1;
+
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -72,6 +78,7 @@ public class code_detect extends AppCompatActivity {
         }
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,8 +90,10 @@ public class code_detect extends AppCompatActivity {
         cameraView = (SurfaceView) findViewById(R.id.surface_view);
         nametext1 = (TextView) findViewById(R.id.nametext);
         usntext1 = (TextView) findViewById(R.id.usntext);
+        preview1 =  (TextView) findViewById(R.id.preview);
 
-        TextRecognizer textRecognizer = new TextRecognizer.Builder(getApplicationContext()).build();
+
+        final TextRecognizer textRecognizer = new TextRecognizer.Builder(getApplicationContext()).build();
         if (!textRecognizer.isOperational()) {
             Log.w("MainActivity", "Detector dependencies are not yet available");
         } else {
@@ -136,7 +145,7 @@ public class code_detect extends AppCompatActivity {
                     final SparseArray<TextBlock> items = detections.getDetectedItems();
                     if(items.size() != 0)
                     {
-                        nametext1.post(new Runnable() {
+                        preview1.post(new Runnable() {
                             @Override
                             public void run() {
                                 StringBuilder stringBuilder = new StringBuilder();
@@ -146,13 +155,70 @@ public class code_detect extends AppCompatActivity {
                                     stringBuilder.append(item.getValue());
                                     stringBuilder.append("\n");
                                 }
-                                nametext1.setText(stringBuilder.toString());
+                                preview1.setText(stringBuilder.toString());
+
+
                             }
                         });
                     }
                 }
             });
+
+
         }
+
+
+
+        scancard1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                textRecognizer.setProcessor(new Detector.Processor<TextBlock>() {
+                    @Override
+                    public void release() {
+
+                    }
+
+                    @Override
+                    public void receiveDetections(Detector.Detections<TextBlock> detections) {
+
+                        final SparseArray<TextBlock> items = detections.getDetectedItems();
+                        if(items.size() != 0)
+                        {
+                            preview1.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    StringBuilder stringBuilder = new StringBuilder();
+                                    for(int i =0;i<items.size();++i)
+                                    {
+                                        TextBlock item = items.valueAt(i);
+                                        stringBuilder.append(item.getValue());
+                                        stringBuilder.append("\n");
+                                    }
+                                    preview1.setText(stringBuilder.toString());
+                                    out= stringBuilder.toString();
+                                    count--;
+                                    if(out!="" && count==0)
+                                    {
+                                        String u = out.substring(0,12);
+                                       String n =out.substring(13,out.length());
+
+                                        nametext1.setText(n);
+                                        usntext1.setText(u);
+                                    }
+
+                                }
+                            });
+                        }
+                    }
+                });
+
+            }
+        });
+
+
+
+
 
 
     }
