@@ -33,3 +33,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-vision:9.8.0'
 
 }
+
+android {
+    useLibrary 'org.apache.http.legacy'
+}
