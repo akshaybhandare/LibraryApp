@@ -23,6 +23,9 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.net.InetSocketAddress;
+import java.net.Socket;
+import java.net.SocketAddress;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,14 +65,14 @@ import com.google.android.gms.vision.text.TextRecognizer;
 
 public class code_detect extends AppCompatActivity {
 
-    String ServerURL = "http://ec2-13-233-143-11.ap-south-1.compute.amazonaws.com/get_data.php" ;
+    String ServerURL;
 
     String TempName, TempUsn ;
 
-    private Button scancard1;
+    private Button scancard1,connectip1;
     private Button nexttoface1;
     SurfaceView cameraView;
-    private TextView nametext1,usntext1;
+    private TextView nametext1,usntext1,ip1;
     CameraSource cameraSource;
     TextView preview1;
     final int RequestCameraPermissionID = 1001;
@@ -111,7 +114,18 @@ public class code_detect extends AppCompatActivity {
         nametext1 = (TextView) findViewById(R.id.nametext);
         usntext1 = (TextView) findViewById(R.id.usntext);
         preview1 =  (TextView) findViewById(R.id.preview);
+        connectip1 = (Button) findViewById(R.id.connectip);
+        ip1 = (TextView) findViewById(R.id.ip);
 
+        connectip1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ServerURL =  "http://"+ip1.getText().toString().trim()+"/get_data.php";
+                Toast.makeText(code_detect.this,"Server address has been set to " + ServerURL,Toast.LENGTH_LONG).show();
+            }
+
+
+        });
 
         final TextRecognizer textRecognizer = new TextRecognizer.Builder(getApplicationContext()).build();
         if (!textRecognizer.isOperational()) {
@@ -311,9 +325,9 @@ public class code_detect extends AppCompatActivity {
 
 
 
-
-
         }
+
+
 
 
 }

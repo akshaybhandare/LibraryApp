@@ -10,79 +10,77 @@
 
     <Button
         android:id="@+id/scancard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="104dp"
+        android:layout_marginEnd="144dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/scanbuttonshape"
         android:elevation="3px"
         android:text="Scan Card"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.456" />
+        app:layout_constraintVertical_bias="0.454" />
 
     <EditText
         android:id="@+id/nametext"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="39dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="72dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
+        android:hint="Student Name"
         android:inputType="textPersonName"
-        android:text="Student Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.824"
+        app:layout_constraintHorizontal_bias="0.823"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scancard"
-        app:layout_constraintVertical_bias="0.057" />
+        app:layout_constraintVertical_bias="0.022" />
 
     <SurfaceView
         android:id="@+id/surface_view"
-        android:layout_width="294dp"
-        android:layout_height="236dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="56dp"
+        android:layout_width="416dp"
+        android:layout_height="235dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/usntext"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="39dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="22dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
+        android:hint="Student USN"
         android:inputType="text"
-        android:text="Student USN"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.824"
+        app:layout_constraintHorizontal_bias="0.823"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nametext"
-        app:layout_constraintVertical_bias="0.048" />
+        app:layout_constraintVertical_bias="0.086" />
 
     <Button
         android:id="@+id/nexttoface"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="624dp"
+        android:layout_width="118dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="548dp"
         android:background="@drawable/scanbuttonshape"
         android:text="NEXT"
         android:textColor="#ffffff"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.535"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -91,15 +89,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="188dp"
+        android:layout_marginTop="176dp"
         android:layout_marginEnd="8dp"
         android:text="Name"
         android:textAlignment="textStart"
-        android:textColor="#7986c7"
-        android:textSize="24sp"
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/nametext"
-        app:layout_constraintHorizontal_bias="0.443"
+        app:layout_constraintHorizontal_bias="0.776"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/surface_view" />
 
@@ -111,15 +109,15 @@
         android:layout_marginBottom="8dp"
         android:text="USN"
         android:textAlignment="textStart"
-        android:textColor="#7986c7"
-        android:textSize="24sp"
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/usntext"
-        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintHorizontal_bias="0.762"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView1"
-        app:layout_constraintVertical_bias="0.206" />
+        app:layout_constraintVertical_bias="0.244" />
 
     <TextView
         android:id="@+id/preview"
@@ -133,6 +131,41 @@
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scancard" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="395dp"
+        android:layout_height="1dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="56dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/ip"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginBottom="12dp"
+        android:ems="10"
+        android:hint="Enter IP"
+        android:inputType="textPersonName|text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/connectip"
+        android:layout_width="87dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/scanbuttonshape"
+        android:text="Connect"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>
