@@ -116,12 +116,10 @@ public class code_detect extends AppCompatActivity {
         preview1 =  (TextView) findViewById(R.id.preview);
         ipview1 = (TextView) findViewById(R.id.ipview);
 
-        Intent intent = getIntent();
-        String ipv4 = intent.getStringExtra("ip");
 
         //ip1.setText(message);
 
-        ServerURL = "http://"+ipv4+"/get_data.php";
+        ServerURL = "http://"+"13.126.46.142"+"/get_data.php";
         ipview1.setText(ServerURL);
 
         final TextRecognizer textRecognizer = new TextRecognizer.Builder(getApplicationContext()).build();

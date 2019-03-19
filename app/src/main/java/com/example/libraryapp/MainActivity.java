@@ -27,8 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         regbutton1 = (Button) findViewById(R.id.regbutton);
-        savebtn1 = (Button) findViewById(R.id.savebtn) ;
-        savetxt1 = (TextView) findViewById(R.id.savetxt) ;
+
 
 
         Button regbutton;
@@ -36,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, code_detect.class);
-                intent.putExtra("ip",data);
                 startActivity(intent);
 
 
@@ -44,14 +42,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-        savebtn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                data = savetxt1.getText().toString().trim();
-                Toast.makeText(MainActivity.this,"Server address has been set to " + data,Toast.LENGTH_LONG).show();
-            }
-        });
 
     }
 }
