@@ -72,7 +72,7 @@ public class code_detect extends AppCompatActivity {
     private Button scancard1,connectip1;
     private Button nexttoface1;
     SurfaceView cameraView;
-    private TextView nametext1,usntext1,ip1;
+    private TextView nametext1,usntext1,ipview1;
     CameraSource cameraSource;
     TextView preview1;
     final int RequestCameraPermissionID = 1001;
@@ -114,18 +114,15 @@ public class code_detect extends AppCompatActivity {
         nametext1 = (TextView) findViewById(R.id.nametext);
         usntext1 = (TextView) findViewById(R.id.usntext);
         preview1 =  (TextView) findViewById(R.id.preview);
-        connectip1 = (Button) findViewById(R.id.connectip);
-        ip1 = (TextView) findViewById(R.id.ip);
+        ipview1 = (TextView) findViewById(R.id.ipview);
 
-        connectip1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ServerURL =  "http://"+ip1.getText().toString().trim()+"/get_data.php";
-                Toast.makeText(code_detect.this,"Server address has been set to " + ServerURL,Toast.LENGTH_LONG).show();
-            }
+        Intent intent = getIntent();
+        String ipv4 = intent.getStringExtra("ip");
 
+        //ip1.setText(message);
 
-        });
+        ServerURL = "http://"+ipv4+"/get_data.php";
+        ipview1.setText(ServerURL);
 
         final TextRecognizer textRecognizer = new TextRecognizer.Builder(getApplicationContext()).build();
         if (!textRecognizer.isOperational()) {

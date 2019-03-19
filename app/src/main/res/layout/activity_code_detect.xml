@@ -132,38 +132,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scancard" />
 
-    <View
-        android:id="@+id/divider"
-        android:layout_width="395dp"
-        android:layout_height="1dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="56dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <EditText
-        android:id="@+id/ip"
+    <TextView
+        android:id="@+id/ipview"
         android:layout_width="wrap_content"
-        android:layout_height="34dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginBottom="12dp"
-        android:ems="10"
-        android:hint="Enter IP"
-        android:inputType="textPersonName|text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/connectip"
-        android:layout_width="87dp"
-        android:layout_height="36dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="12dp"
-        android:background="@drawable/scanbuttonshape"
-        android:text="Connect"
-        android:textAlignment="center"
-        android:textColor="#fff"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="164dp"
+        android:layout_marginBottom="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
