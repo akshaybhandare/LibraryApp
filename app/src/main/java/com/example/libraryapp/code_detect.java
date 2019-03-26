@@ -70,7 +70,7 @@ public class code_detect extends AppCompatActivity {
     String TempName, TempUsn ;
 
     private Button scancard1,connectip1;
-    private Button nexttoface1;
+    private Button nexttoface1,goto1;
     SurfaceView cameraView;
     private TextView nametext1,usntext1,ipview1;
     CameraSource cameraSource;
@@ -115,6 +115,7 @@ public class code_detect extends AppCompatActivity {
         usntext1 = (TextView) findViewById(R.id.usntext);
         preview1 =  (TextView) findViewById(R.id.preview);
         ipview1 = (TextView) findViewById(R.id.ipview);
+        goto1 = (Button) findViewById(R.id.gonext);
 
 
         //ip1.setText(message);
@@ -316,7 +317,13 @@ public class code_detect extends AppCompatActivity {
             }
         });
 
-
+        goto1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(code_detect.this, Fingureprint.class);
+                startActivity(intent);
+            }
+        });
 
 
 
